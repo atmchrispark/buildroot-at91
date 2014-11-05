@@ -29,7 +29,7 @@ URI : [https://github.com/linux4SC/wilc_firmware](https://github.com/linux4SC/wi
 #### Build procedure
 Clone buildroot-at91 git repository
 
-    $ git clone https://github.com/linux4SC/buildroot-at91.git
+`$ git clone https://github.com/linux4SC/buildroot-at91.git`
 
 Checkout buildroot-2013.11-at91
 
