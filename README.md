@@ -50,21 +50,27 @@ So, they should be included by the following command before building the buildro
 
 >>Move to “Target package -> Networking applications -> wpa_supplicant” and check
 
+>>![](https://github.com/atmchrispark/Image/blob/master/supplicant.jpg)
+
 >For AP mode, the below option should be included
 
 >>Move to “Target package -> Networking applications -> hostapd” and check
+
+>>![](https://github.com/atmchrispark/Image/blob/master/hostapd.jpg)
 
 >For DHCP server/client, the below option should be included
 
 >>Move to “Target package -> Networking applications -> dhcp (ISC) and dhcpcd” and check
 
+>>![](https://github.com/atmchrispark/Image/blob/master/dhcp.jpg)
+
 Build core image
 
     $ make
 
->Don't use -j option.
+![checkmark](https://github.com/atmchrispark/Image/blob/master/custion.png)Don't use -j option.
 
->If a qustion is displayed about qt during building, input 'o' and 'yes'.
+![checkmark](https://github.com/atmchrispark/Image/blob/master/custion.png)If a qustion is displayed about qt during building, input 'o' and 'yes'.
 
 
 Built binary path for kernel and rootfs
