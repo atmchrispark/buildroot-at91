@@ -40,6 +40,24 @@ Initialize default configuration
 
     $ make sama5d3_xplained_defconfig
 
+The default configuration may miss some of services for network system.
+
+So, they should be included by the following command before building the buildroot
+
+    $ make menuconfig
+    
+>For a station mode, the below option should be included
+
+>>Move to “Target package -> Networking applications -> wpa_supplicant” and check
+
+>For AP mode, the below option should be included
+
+>>Move to “Target package -> Networking applications -> hostapd” and check
+
+>For DHCP server/client, the below option should be included
+
+>>Move to “Target package -> Networking applications -> dhcp (ISC) and dhcpcd” and check
+
 Build core image
 
     $ make
