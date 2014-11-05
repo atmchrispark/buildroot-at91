@@ -50,13 +50,13 @@ So, they should be included by the following command before building the buildro
 
 >>Move to “Target package -> Networking applications -> wpa_supplicant” and check
 
->>![](https://github.com/atmchrispark/Image/blob/master/supplicant.jpg)
+>><img src="https://github.com/atmchrispark/Image/blob/master/supplicant.jpg" width="533" height="277"/>
 
 >For AP mode, the below option should be included
 
 >>Move to “Target package -> Networking applications -> hostapd” and check
 
->>![](https://github.com/atmchrispark/Image/blob/master/hostapd.jpg)
+>><img src="https://github.com/atmchrispark/Image/blob/master/hostapd.jpg" width="533" height="277"/>
 
 >For DHCP server/client, the below option should be included
 
