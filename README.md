@@ -6,13 +6,15 @@ For more information about the Atmel | SMART product line see:
 * [http://www.atmel.com/products/wireless/wifi/](http://www.atmel.com/products/wireless/wifi/)
 
 Linux & Open Source on Atmel | SMART:
-* [http://www.linux4sam.org](http://www.linux4sam.org)
+* [http://www.linux4sam.org][http://www.linux4sam.org]
 
 ***
 
 #### Supported SoCs / MACHINE names
-* sama5d3-xplained
-* WILC1000 SD pro
+* **sama5d3-xplained**
+* __sama5d3-xplained__
+* *WILC1000 SD pro*
+* _WILC1000 SD pro_
 
 ***
 
