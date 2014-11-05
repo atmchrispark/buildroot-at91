@@ -33,32 +33,37 @@ Clone buildroot-at91 git repository
 
 Checkout buildroot-2013.11-at91
 
-    $ cd buildroot-at91
-    $ git checkout buildroot-2013.11-at91 -b my_branch
+~~~~
+$ cd buildroot-at91
+$ git checkout buildroot-2013.11-at91 -b my_branch
+~~~~
 
 Initialize default configuration
 
-    $ make sama5d3_xplained_defconfig
+```
+$ make sama5d3_xplained_defconfig
+```
 
-The default configuration may miss some of services for network system.
-
+The default configuration may miss some of services for network system.  
 So, they should be included by the following command before building the buildroot
 
-    $ make menuconfig
-    
->For a station mode, the below option should be included
+~~~~
+$ make menuconfig
+~~~~
+
+>* For a station mode, the below option should be included
 
 >>Move to “Target package -> Networking applications -> wpa_supplicant” and check
 
 >><img src="https://github.com/atmchrispark/Image/blob/master/supplicant.jpg" width="533" height="277"/>
 
->For AP mode, the below option should be included
+>* For AP mode, the below option should be included
 
 >>Move to “Target package -> Networking applications -> hostapd” and check
 
 >><img src="https://github.com/atmchrispark/Image/blob/master/hostapd.jpg" width="533" height="277"/>
 
->For DHCP server/client, the below option should be included
+>* For DHCP server/client, the below option should be included
 
 >>Move to “Target package -> Networking applications -> dhcp (ISC) and dhcpcd” and check
 
