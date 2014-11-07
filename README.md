@@ -12,20 +12,7 @@ Linux & Open Source on Atmel | SMART:
 
 #### Supported SoCs / MACHINE names
 * **sama5d3-xplained**
-* __sama5d3-xplained__
 * *WILC1000 SD pro*
-* _WILC1000 SD pro_
-
-***
-
-#### Table Example
-
-|TABLE 1   |TABLE 2   |TABLE 3   |TABLE 4   |TABLE5   |
-|----------|----------|----------|----------|---------|
-|1         |2         |3         |4         |5        |
-|6         |7         |8         |9         |10       |
-|11        |12        |13        |14        |15       |
-|16        |17        |18        |19        |20       |
 
 ***
 
@@ -86,9 +73,9 @@ Build core image
 
     $ make
 
-![checkmark](https://github.com/atmchrispark/Image/blob/master/custion.png)Don't use -j option.
+>Don't use -j option.
 
-![checkmark](https://github.com/atmchrispark/Image/blob/master/custion.png)If a qustion is displayed about qt during building, input 'o' and 'yes'.
+>If a qustion is displayed about qt during building, input 'o' and 'yes'.
 
 
 Built binary path for kernel and rootfs
