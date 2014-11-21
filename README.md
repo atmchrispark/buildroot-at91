@@ -101,17 +101,18 @@ The following shows how to load the wilc1000 module driver.
 Welcome to Buildroot
 buildroot login: root
 # insmod /lib/modules/3.10.0/kernel/drivers/net/wireless/atmel/wilc1000.ko
-*** WILC1000 driver VERSION=[9.4.4] REVISON=[417] FW_VER=[wilc1000_fw.bin] ***
-DBG [linux_wlan_device_power: 187]linux_wlan_device_power.. (1)
-DBG [linux_wlan_device_detection: 203]linux_wlan_device_detection.. (1)
+IN INIT FUNCTION
+*** WILC1000 driver VERSION=[10.0.0] REVISON=[417] FW_VER=[wilc1000_fw.bin] ***
+DBG [linux_wlan_device_power: 186]linux_wlan_device_power.. (1)
+DBG [linux_wlan_device_detection: 202]linux_wlan_device_detection.. (1)
 DBG [linux_sdio_probe: 134]probe function
 DBG [linux_sdio_probe: 145]Initializing netdev
-DBG [WILC_WFI_WiphyRegister: 4446]Registering wifi device
-DBG [WILC_WFI_CfgAlloc: 4393]Allocating wireless device
-DBG [WILC_WFI_WiphyRegister: 4515]Successful Registering
-DBG [WILC_WFI_WiphyRegister: 4446]Registering wifi device
-DBG [WILC_WFI_CfgAlloc: 4393]Allocating wireless device
-DBG [WILC_WFI_WiphyRegister: 4515]Successful Registering
+DBG [WILC_WFI_WiphyRegister: 4568]Registering wifi device
+DBG [WILC_WFI_CfgAlloc: 4515]Allocating wireless device
+DBG [WILC_WFI_WiphyRegister: 4634]Successful Registering
+DBG [WILC_WFI_WiphyRegister: 4568]Registering wifi device
+DBG [WILC_WFI_CfgAlloc: 4515]Allocating wireless device
+DBG [WILC_WFI_WiphyRegister: 4634]Successful Registering
 ```
 
 ##### Running as Station Mode  
@@ -120,22 +121,34 @@ Execute wpa_supplicant with following command on terminal. The wpa_supplicant wi
 ```
 # wpa_supplicant -Dnl80211 -iwlan0 -c/etc/wilc_wpa_supplicant.conf &
 
-DBG [wlan_init_locks: 1810]Initializing Locks ...
-DBG [linux_to_wlan: 1881]Linux to Wlan services ...
-DBG [wilc_wlan_init: 2938]Initializing WILC_Wlan ...
+DBG [wlan_init_locks: 1779]Initializing Locks ...
+DBG [linux_to_wlan: 1850]Linux to Wlan services ...
+DBG [wilc_wlan_init: 2280]Initializing WILC_Wlan ...
 [wilc sdio]: chipid (001002b0)
-DBG [wilc_wlan_firmware_download: 2282]Downloading firmware size = 142676 ...
-DBG [wilc_wlan_firmware_download: 2319]Offset = 121496
-DBG [wilc_wlan_firmware_download: 2319]Offset = 142676
-DBG [linux_wlan_firmware_download: 1403]Freeing FW buffer ...
-DBG [linux_wlan_firmware_download: 1404]Releasing firmware
-DBG [linux_wlan_firmware_download: 1408]Download Succeeded 
-DBG [linux_wlan_start_firmware: 1342]Starting Firmware ...
-DBG [linux_wlan_start_firmware: 1353]Waiting for Firmware to get ready ...
-ERR [GnrlAsyncInfoReceived: 7474]Wifi driver handler is equal to NULL
-DBG [linux_wlan_start_firmware: 1379]Firmware successfully started
+[wilc sdio]: has_thrpt_enh3 = 1...
+[MMM] malloc before, g_wlan.tx_buffer = 0x0, g_wlan.rx_buffer = 0x0
+[mem] tx_buf = 0xcf880000
+[MMM] g_wlan.tx_buffer = 0xcf880000
+[mem] rx_buf = 0xcf8a0000
+[MMM] g_wlan.rx_buffer =0xcf8a0000
+DBG [wlan_initialize_threads: 1921]Initializing Threads ...
+DBG [wlan_initialize_threads: 1952]Creating kthread for transmission
+DBG [linux_wlan_firmware_download: 1384]Downloading Firmware ...
+[mem] fw_buf = 0xcf845000
+[MMM] dma_buffer = 0xcf845000
+DBG [wilc_wlan_firmware_download: 1649]Downloading firmware size = 124540 ...
+DBG [wilc_wlan_firmware_download: 1686]Offset = 110304
+DBG [wilc_wlan_firmware_download: 1686]Offset = 124540
+DBG [linux_wlan_firmware_download: 1391]Freeing FW buffer ...
+DBG [linux_wlan_firmware_download: 1392]Releasing firmware
+DBG [linux_wlan_firmware_download: 1396]Download Succeeded 
+DBG [linux_wlan_start_firmware: 1330]Starting Firmware ...
+DBG [linux_wlan_start_firmware: 1341]Waiting for Firmware to get ready ...
+ERR [GnrlAsyncInfoReceived: 7559]Wifi driver handler is equal to NULL
+DBG [linux_wlan_start_firmware: 1367]Firmware successfully started
 ...
 ```
+
 The following commands demonstrate how to scan and connect to the AP.  
 ```
 # wpa_cli -p/var/run/wpa_supplicant ap_scan 1 
@@ -165,26 +178,38 @@ wpa_state=COMPLETED
 ip_address=192.168.43.2
 address=00:80:c2:b3:d7:4d
 ```  
-  
+######* How to create `wilc_wpa_supplicant.conf` file  
+Create `/etc/wilc_wpa_supplicant.conf` like the below:  
+```  
+ctrl_interface=/var/run/wpa_supplicant  
+update_config=1  
+```  
+> Reference : [http://w1.fi/cgit/hostap/plain/wpa_supplicant/wpa_supplicant.conf](http://w1.fi/cgit/hostap/plain/wpa_supplicant/wpa_supplicant.conf)  
+
 ##### Running as AP Mode  
 The following command demonstrates how to execute the hostapd.  
 ```
 # hostapd /etc/wilc_hostapd.conf -B &
 
-DBG [WILC_WFI_change_virt_intf: 3259]Changing virtual interface, enable scan
-DBG [WILC_WFI_change_virt_intf: 3486]Downloading AP firmware
-DBG [WILC_WFI_add_virt_intf: 4169]Adding monitor interface[cfbc6000]
-DBG [WILC_WFI_add_virt_intf: 4176]Monitor interface mode: Initializing mon interface virtual device driver
-DBG [WILC_WFI_add_virt_intf: 4177]Adding monitor interface[cfbc6000]
-DBG [WILC_WFI_add_virt_intf: 4181]Setting monitor flag in private structure
-MAC OPEN[cfbc6000]
-DBG [WILC_WFI_InitHostInt: 4562]Host[cfbc6000][cf09f140]
-DBG [wlan_init_locks: 1810]Initializing Locks ...
-DBG [linux_to_wlan: 1881]Linux to Wlan services ...
-DBG [wilc_wlan_init: 2938]Initializing WILC_Wlan ...
+DBG [WILC_WFI_change_virt_intf: 3380]Wireless interface name =wlan0
+DBG [WILC_WFI_change_virt_intf: 3389]Changing virtual interface, enable scan
+DBG [WILC_WFI_change_virt_intf: 3607]Interface type = NL80211_IFTYPE_AP 3
+(WILC_Uint32)priv->hWILCWFIDrv[0]
+DBG [WILC_WFI_change_virt_intf: 3617]Downloading AP firmware
+DBG [WILC_WFI_add_virt_intf: 4291]Adding monitor interface[cf079800]
+DBG [WILC_WFI_add_virt_intf: 4298]Monitor interface mode: Initializing mon interface virtual device driver
+DBG [WILC_WFI_add_virt_intf: 4299]Adding monitor interface[cf079800]
+DBG [WILC_WFI_add_virt_intf: 4303]Setting monitor flag in private structure
+MAC OPEN[cf079800]
+DBG [WILC_WFI_InitHostInt: 4681]Host[cf079800][cf076ec0]
+DBG [mac_open: 2380]*** re-init ***
+DBG [wlan_init_locks: 1779]Initializing Locks ...
+DBG [linux_to_wlan: 1850]Linux to Wlan services ...
+DBG [wilc_wlan_init: 2280]Initializing WILC_Wlan ...
 [wilc sdio]: chipid (001002b0)
 ...
 ```  
+
 >Refer to wilc_hostapd.conf for the details of AP settings  
 
 Updated the dhcpd.conf  like the following.  
@@ -227,5 +252,20 @@ Start up dhcp server
 
     #/etc/init.d/S80dhcp-server start  
     
+######* How to create `wilc_hostapd.conf` file  
+Create `/etc/wilc_hostapd.conf` like the below:  
+```  
+interface=wlan0  
+driver=nl80211  
+ctrl_interface=/var/run/hostapd  
+ssid=SoftAP  
+dtim_period=2  
+beacon_int=100  
+channel=1  
+hw_mode=g  
+max_num_sta=8  
+ap_max_inactivity=300  
+```  
+> Reference : [http://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf](http://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf)   
 
 Now you can launch PC or Smartphone to connect to WILC1000 device, which is running as AP mode.  
