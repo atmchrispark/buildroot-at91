@@ -10,9 +10,9 @@ Linux & Open Source on Atmel | SMART:
 
 ***
 
-#### Supported SoCs / MACHINE names
-* **sama5d3-xplained**
-* *WILC1000 SD pro*
+#### Supported SoCs / MACHINE names  
+* sama5d3-xplained  
+* WILC1000 SD pro  
 
 ***
 
@@ -29,7 +29,7 @@ URI : [https://github.com/linux4SC/wilc_firmware](https://github.com/linux4SC/wi
 #### Build procedure
 Clone buildroot-at91 git repository
 
-`$ git clone https://github.com/linux4SC/buildroot-at91.git`
+    $ git clone https://github.com/linux4SC/buildroot-at91.git  
 
 Checkout buildroot-2013.11-at91
 
