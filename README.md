@@ -6,7 +6,7 @@ For more information about the Atmel | SMART product line see:
 * [http://www.atmel.com/products/wireless/wifi/](http://www.atmel.com/products/wireless/wifi/)
 
 Linux & Open Source on Atmel | SMART:
-* [http://www.linux4sam.org][http://www.linux4sam.org]
+* [http://www.linux4sam.org](http://www.linux4sam.org)
 
 ***
 
@@ -116,7 +116,7 @@ DBG [WILC_WFI_WiphyRegister: 4634]Successful Registering
 ```
 
 ##### Running as Station Mode  
-Station mode is normal Wi-Fi operation that is connecting to a given AP.
+Station mode is normal Wi-Fi operation that is connecting to a given AP.  
 Execute wpa_supplicant with following command on terminal. The wpa_supplicant will automatically perform the background scan with “`ifconfig wlan0 up`” command.  
 ```
 # wpa_supplicant -Dnl80211 -iwlan0 -c/etc/wilc_wpa_supplicant.conf &
@@ -159,7 +159,7 @@ The following commands demonstrate how to scan and connect to the AP.
 ```
 >Please change “User_AP” with SSID of desired AP.  
 
-Start up dhcp client 
+Start up dhcp client  
 
     #dhcpcd wlan0  
 
@@ -178,7 +178,7 @@ wpa_state=COMPLETED
 ip_address=192.168.43.2
 address=00:80:c2:b3:d7:4d
 ```  
-######* How to create `wilc_wpa_supplicant.conf` file  
+######* Create `wilc_wpa_supplicant.conf` file  
 Create `/etc/wilc_wpa_supplicant.conf` like the below:  
 ```  
 ctrl_interface=/var/run/wpa_supplicant  
@@ -252,7 +252,7 @@ Start up dhcp server
 
     #/etc/init.d/S80dhcp-server start  
     
-######* How to create `wilc_hostapd.conf` file  
+######* Create `wilc_hostapd.conf` file  
 Create `/etc/wilc_hostapd.conf` like the below:  
 ```  
 interface=wlan0  
