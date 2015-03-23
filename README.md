@@ -12,7 +12,7 @@ Linux & Open Source on Atmel | SMART:
 
 #### Supported SoCs / MACHINE names  
 * sama5d3-xplained  
-* WILC1000 SD pro   asdfsdf
+* WILC1000 SD pro  
 
 ***
 
